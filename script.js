@@ -1,10 +1,7 @@
-console.log("Hello World");
+console.log("Let's play rock papers scissors! Just call the playGame() function. Best of 5 wins.");
 
 let humanScore = 0;
 let computerScore = 0;
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
 function getComputerChoice() {
     const randomNumber = Math.random();
@@ -19,7 +16,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    const choice = prompt("Please choose between rock, papers or scisscors");
+    const choice = prompt("Please choose between rock, papers or scissors");
     return choice;
 }
 
@@ -36,10 +33,17 @@ function playRound(humanChoice, computerChoice) {
 
 function playGame() {
     for (i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
         if (playRound(humanSelection, computerSelection) === "you win, you lucker") {
+            console.log("win");
             humanScore++;
         } else if (playRound(humanSelection, computerSelection) === "you lose, you pechvogel") {
+            console.log("lose");
             computerScore++;
+        } else if (playRound(humanSelection, computerSelection) === "tie") {
+            console.log("tie");
         }
     }
 
